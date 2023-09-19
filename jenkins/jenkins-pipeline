@@ -1,5 +1,8 @@
 pipeline { 
   agent any
+  tools{
+    nodejs 'NodeJS'
+  }
   
   stages {
     stage( 'clone reposirtory'){
@@ -15,6 +18,11 @@ pipeline {
     stage('Build'){
         steps{
             sh 'node server'
+        }
+    }
+    stage (npm ver){
+        steps {
+            sh 'npm version'
         }
     }
   }
