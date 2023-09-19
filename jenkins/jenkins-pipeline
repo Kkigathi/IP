@@ -20,7 +20,7 @@ pipeline {
             sh 'node server'
         }
     }
-    stage (npm ver){
+    stage ('npm ver'){
         steps {
             sh 'npm version'
         }
