@@ -6,5 +6,10 @@ pipeline {
             git url: 'https://github.com/Kkigathi/IP'
         }
     }
+    stage ('Dependencies'){
+        steps{
+            sh 'npm install'
+        }
+    }
   }
 }
