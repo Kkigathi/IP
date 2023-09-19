@@ -1,11 +1,10 @@
 pipeline { 
   agent any
-
-  stages { 
-    stage('clone repository') {
-      steps { 
-        git url: 'https://github.com/Kkigathi/IP'
-      }
-    
+  stages {
+    stage( 'clone reposirtory'){
+        steps{
+            git url: 'https://github.com/Kkigathi/IP'
+        }
+    }
   }
 }
