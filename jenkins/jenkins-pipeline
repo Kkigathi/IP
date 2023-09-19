@@ -25,5 +25,21 @@ pipeline {
             sh 'npm version'
         }
     }
+    stage ('Test'){
+        steps{
+            sh 'npm test || echo "Tests failed" && exit 1'
+        }
+    }
+    stage('slack notification'){
+        steps{
+            script {
+                def renderlink = 'https//ip-937f.onrender.com/'
+                def slackMessage = "deployment successful - Render Link: ${renderLink}"
+
+                slackSend(channel: 'ip-project', message: slackMessage)
+            }
+        }
+
+    }
   }
 }
